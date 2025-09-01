@@ -1,0 +1,248 @@
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>차 추천 랜딩</title>
+  <style>
+    :root{
+      --bg:#f6f6f6;
+      --card:#ffffff;
+      --text:#222;
+      --sub:#666;
+      --line:#e9e9e9;
+      --pill:#f2f2f2;
+      --pillText:#444;
+      --primary:#9a7b5a; /* 버튼/포커스 포인트 */
+      --radius:16px;
+      --shadow:0 6px 18px rgba(0,0,0,.06);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR",
+                   "Apple SD Gothic Neo","Pretendard","맑은 고딕",sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px 18px 64px;
+    }
+
+    /* ---------- 헤더(페이지 타이틀 표시 용도) ---------- */
+    .page-note{
+      font-size:13px; color:#9a9a9a; margin:2px 0 14px 2px;
+    }
+
+    /* ---------- 히어로 영역 ---------- */
+    .hero{
+      position:relative;
+      border-radius:20px;
+      overflow:hidden;
+      height:420px;
+      background:#000 center/cover no-repeat;
+      box-shadow:var(--shadow);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .hero::before{
+      /* 어두운 오버레이 */
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.35) 55%, rgba(0,0,0,.45));
+    }
+    .hero img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+    .hero-content{
+      position:relative; text-align:center; color:#fff; padding:0 16px;
+      transform: translateY(-6px);
+    }
+    .hero h1{
+      margin:0 0 18px;
+      font-weight:800; letter-spacing:-.02em;
+      font-size:28px;
+      text-shadow:0 2px 10px rgba(0,0,0,.35);
+    }
+    .btn{
+      display:inline-block; border:none; cursor:pointer;
+      padding:12px 18px; border-radius:999px;
+      background:#fff; color:#222; font-weight:700;
+      box-shadow:0 6px 20px rgba(0,0,0,.18);
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{
+      background:#fff; color:#3a2b1e;
+    }
+
+    /* ---------- 섹션 공통 ---------- */
+    .section{margin-top:34px}
+    .section h2{
+      margin:0 0 14px;
+      font-size:18px; letter-spacing:-.01em;
+    }
+    .pills{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px}
+    .pill{
+      font-size:12px; color:var(--pillText); background:var(--pill);
+      padding:8px 10px; border-radius:999px; border:1px solid var(--line);
+      user-select:none;
+    }
+
+    /* ---------- 카드 그리드 ---------- */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column:span 4;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .card .thumb{
+      aspect-ratio: 4 / 3;
+      width:100%; object-fit:cover; display:block;
+    }
+    .card .body{padding:12px 14px 14px}
+    .title{font-size:13px; font-weight:700; margin:2px 0 4px}
+    .caption{font-size:12px; color:var(--sub)}
+
+    /* ---------- 추천 리스트(두 번째 섹션) ---------- */
+    .list{
+      display:grid; gap:14px;
+      grid-template-columns:repeat(12,1fr);
+    }
+    .list-item{
+      grid-column:span 3;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px; overflow:hidden; box-shadow:var(--shadow);
+    }
+    .list-item img{width:100%; aspect-ratio:4/3; object-fit:cover; display:block}
+    .list-item .body{padding:10px 12px 14px}
+    .list-item .title{margin:4px 0}
+    .muted{
+      text-align:center; color:#9a9a9a; font-size:11px; margin-top:18px;
+    }
+    hr.sep{border:none; border-top:1px solid var(--line); margin:28px 0}
+
+    /* ---------- 반응형 ---------- */
+    @media (max-width: 1024px){
+      .card{grid-column:span 6}
+      .list-item{grid-column:span 6}
+    }
+    @media (max-width: 640px){
+      .wrap{padding:16px 14px 40px}
+      .hero{height:320px}
+      .hero h1{font-size:22px}
+      .card{grid-column:span 12}
+      .list-item{grid-column:span 12}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="page-note">Desktop - 2</div>
+
+    <!-- 히어로 -->
+    <section class="hero">
+      <!-- 배경 이미지: 필요 시 원본 이미지 경로로 교체 -->
+      <img src="https://images.unsplash.com/photo-1523905330026-b8bd1f5f320e?q=80&w=1600&auto=format&fit=crop" alt="차와 다기 배경" />
+      <div class="hero-content">
+        <h1>몸과 마음에 필요한 차,<br/>로그인하고 추천받으세요</h1>
+        <button class="btn btn-primary">지금 로그인하기</button>
+      </div>
+    </section>
+
+    <!-- 섹션 1 -->
+    <section class="section">
+      <h2>기분 따라 골라 마시는 차</h2>
+      <div class="pills">
+        <span class="pill">달콤한 향미가 좋아요</span>
+        <span class="pill">마음이 편안해지는</span>
+        <span class="pill">따뜻하게</span>
+        <span class="pill">숙면이 필요해요</span>
+        <span class="pill">개운하게</span>
+      </div>
+
+      <div class="grid">
+        <!-- 카드 1 -->
+        <article class="card">
+          <img class="thumb" src="https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop" alt="캐모마일" />
+          <div class="body">
+            <div class="caption">마음을 달래주는<br/>카모마일</div>
+          </div>
+        </article>
+
+        <!-- 카드 2 -->
+        <article class="card">
+          <img class="thumb" src="https://images.unsplash.com/photo-1585237017120-3b2a4a3b39d9?q=80&w=1200&auto=format&fit=crop" alt="라벤더 티" />
+          <div class="body">
+            <div class="caption">잠기운 사라지는<br/>라벤더</div>
+          </div>
+        </article>
+
+        <!-- 카드 3 -->
+        <article class="card">
+          <img class="thumb" src="https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=1200&auto=format&fit=crop" alt="루이보스" />
+          <div class="body">
+            <div class="caption">붉은 향의, 은은한<br/>루이보스</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <hr class="sep"/>
+
+    <!-- 섹션 2 -->
+    <section class="section">
+      <h2>지금 이 순간, 당신에게 필요한 차</h2>
+      <div class="pills" style="margin-bottom:12px">
+        <span class="pill">소화가 안돼요</span>
+        <span class="pill">몸을 따뜻하게</span>
+        <span class="pill">집중이 필요해요</span>
+        <span class="pill">스트레스가 쌓였어요</span>
+        <span class="pill">피로가 쌓여있어요</span>
+      </div>
+
+      <div class="list">
+        <!-- 반복 아이템 -->
+        <article class="list-item">
+          <img src="https://images.unsplash.com/photo-1554134023-1e51158957c0?q=80&w=1200&auto=format&fit=crop" alt="추천 차" />
+          <div class="body">
+            <div class="title">속을 편안하게<br/>페퍼민트</div>
+          </div>
+        </article>
+
+        <article class="list-item">
+          <img src="https://images.unsplash.com/photo-1532635042-0a27bf78c0f9?q=80&w=1200&auto=format&fit=crop" alt="추천 차" />
+          <div class="body">
+            <div class="title">개운한 한 모금<br/>레몬그라스</div>
+          </div>
+        </article>
+
+        <article class="list-item">
+          <img src="https://images.unsplash.com/photo-1542990253-0d0f3f3c0402?q=80&w=1200&auto=format&fit=crop" alt="추천 차" />
+          <div class="body">
+            <div class="title">속을 보호하는<br/>생강차</div>
+          </div>
+        </article>
+
+        <article class="list-item">
+          <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1200&auto=format&fit=crop" alt="추천 차" />
+          <div class="body">
+            <div class="title">집중을 깨워주는<br/>얼그레이</div>
+          </div>
+        </article>
+      </div>
+
+      <p class="muted">개인 취향 분석 결과를 토대로 추천해요 · 추천 기준 보기</p>
+    </section>
+  </div>
+</body>
+</html>
