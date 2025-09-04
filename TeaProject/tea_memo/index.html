@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 기본 */
+    :root {
+      width: 1440px;
+      height: 3184px;
+      background: #F1F1F1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+        Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+        'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    }
+
+    .topbar {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      aspect-ratio: 1/1;
+      margin-top: 80px;
+      margin-left: 100px;
+    }
+
+    .container {
+      max-width: 1400px;
+      /* 원하는 폭 */
+      width: min(90vw, 1150px);
+      justify-content: center;
+      /* 가로 중앙 */
+      align-items: center;
+      /* 세로 중앙 */
+      margin: 0 auto;
+      /* 가로 가운데 */
+      padding: 24px;
+      position: relative;
+      left: 245px;
+    }
+
+    .main-title {
+      display: flex;
+      justify-content: center;
+      /* 가로 중앙 */
+      align-items: center;
+      /* 세로 중앙 */
+    }
+
+    /* 제목/탭은 가운데 정렬 */
+    .main-title p {
+      color: #000;
+      font-family: Pretendard;
+      font-size: 52px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    .sub-title p {
+      color: #999;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 52px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 211px;
+    }
+
+    .title-div {
+      display: flex;
+      justify-content: center;
+      /* 가로 중앙 */
+      align-items: center;
+      /* 세로 중앙 */
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a class="back" href="#" aria-label="뒤로 가기">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <path
+            d="M36 19.125H4.39453L18.2285 32.959L16.6465 34.541L0.105469 18L16.6465 1.45898L18.2285 3.04102L4.39453 16.875H36V19.125Z"
+            fill="black" />
+        </svg>
+      </a>
+    </div>
+    <div class="main-title">
+      <p>차를 마시면 기분이 한결 나아질거에요.<br><br>
+        천천히 차를 마시면서 오늘의 기분이나 상태를<br> 함께 기록해보세요</p>
+    </div>
+    <div class="sub-title">
+      <p>무엇이든 입력하세요 :)</p>
+    </div>
+    <div class="save">
+      <button class="save-btn">저장하기</button>
+    </div>
+  </div>
+</body>
+
+</html>

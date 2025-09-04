@@ -2,305 +2,355 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>스트레스 받을 땐, 이런 차 어때세요?</title>
-    <style>
-        /* 기본 */
-        :root {
-            width: 1440px;
-            height: 3184px;
-            background: #F1F1F1;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>스트레스 받을 땐, 이런 차 어때세요?</title>
+  <style>
+    /* 기본 */
+    :root {
+      width: 1440px;
+      height: 3184px;
+      background: #F1F1F1;
+    }
 
-        * {
-            box-sizing: border-box;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
-                Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
-                'Noto Sans KR', 'Malgun Gothic', sans-serif;
-        }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+        Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+        'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    }
 
-        .topbar {
-            width: 36px;
-            height: 36px;
-            flex-shrink: 0;
-            aspect-ratio: 1/1;
-            margin-top: 80px;
-            margin-left: 100px;
-        }
+    .topbar {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      aspect-ratio: 1/1;
+      margin-top: 80px;
+      margin-left: 100px;
+    }
 
-        .container {
-            max-width: 1082px;
-            /* 원하는 폭 */
-            width: min(90vw, 800px);
-            margin: 0 auto;
-            /* 가로 가운데 */
-            padding: 24px;
-            position: relative;
-            left: 245px;
-        }
+    .container {
+      max-width: 1400px;
+      /* 원하는 폭 */
+      width: min(90vw, 1150px);
+      margin: 0 auto;
+      /* 가로 가운데 */
+      padding: 24px;
+      position: relative;
+      left: 245px;
+    }
 
-        /* 제목/탭은 가운데 정렬 */
-        h1 {
-            text-align: center;
-        }
+    /* 제목/탭은 가운데 정렬 */
+    h1 {
+      text-align: center;
+    }
 
-        .title {
-            color: #000;
-            font-family: Pretendard;
-            font-size: 52px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-            margin-bottom: 40px;
-        }
+    .title-div {
+      display: flex;
+      justify-content: center;
+      /* 가로 중앙 */
+      align-items: center;
+      /* 세로 중앙 */
+    }
 
-        .tea-menu {
-            display: flex;
-            /* 가로 정렬 */
-            justify-content: center;
-            /* 가운데 정렬 */
-            gap: 12px;
-        }
+    .title {
+      width: 1082px;
+      color: #000;
+      font-family: Pretendard;
+      font-size: 52px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      margin: 0 0 40px;
+      word-break: keep-all;
+      /* 한글 단어 중간 줄바꿈 방지 */
+      white-space: nowrap;
+      /* 아예 줄바꿈 금지 */
+      text-overflow: ellipsis;
+    }
 
-        .tea-btn {
-            color: #999;
-            font-family: Pretendard;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            appearance: none;
-            display: flex;
-            padding: 16px 20px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            border-radius: 8px;
-            border: 1px solid #999;
-            transition: background-color 0.4s ease,
-                /* 0.6초 동안 색상 변화 */
-                transform .15s ease,
-                box-shadow .2s ease;
-            cursor: pointer;
-            margin-bottom: 100px;
-            margin-top: 10px;
-        }
+    .tea-menu {
+      display: flex;
+      /* 가로 정렬 */
+      justify-content: center;
+      /* 가운데 정렬 */
+      gap: 12px;
+    }
 
-        .tea-btn:hover {
-            background: #BFAE9F;
-            color: #fff;
-            border: none;
-        }
+    .tea-btn {
+      color: #999;
+      font-family: Pretendard;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      appearance: none;
+      display: flex;
+      padding: 16px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 8px;
+      border: 1px solid #999;
+      transition: background-color 0.4s ease,
+        /* 0.6초 동안 색상 변화 */
+        transform .15s ease,
+        box-shadow .2s ease;
+      cursor: pointer;
+      margin-bottom: 100px;
+      margin-top: 10px;
+    }
 
-        img {
-            flex-shrink: 0;
-            border-radius: 8px;
-            display: block;
-            margin: 0 auto;
-            /* 좌우 여백 자동 → 가운데 정렬 */
-            max-width: 130%;
-            /* 화면보다 커지지 않도록 */
-            height: auto;
-            position: relative;
-            right: 100px;
+    .tea-btn:hover {
+      background: #BFAE9F;
+      color: #fff;
+      border: none;
+    }
 
-        }
+    img {
+      flex-shrink: 0;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+      /* 좌우 여백 자동 → 가운데 정렬 */
+      max-width: 100%;
+      /* 화면보다 커지지 않도록 */
+      height: auto;
+    }
 
-        .tea-name {
-            text-align: center;
-            color: #000;
-            font-family: Pretendard;
-            font-size: 40px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 140%;
-            /* 56px */
-            margin-top: 80px;
-        }
+    .tea-name {
+      text-align: center;
+      color: #000;
+      font-family: Pretendard;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      /* 56px */
+      margin-top: 80px;
+    }
 
-        .tea-sub {
-            text-align: center;
-            color: #000;
-            font-family: Pretendard;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 140%;
-            /* 33.6px */
-            margin-bottom: 56px;
-        }
+    .tea-sub {
+      text-align: center;
+      color: #000;
+      font-family: Pretendard;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      /* 33.6px */
+      margin-bottom: 56px;
+    }
 
-        .tea-text {
-            margin: 0 auto;
-            width: 1082px;
-            color: #000;
-            font-family: Pretendard;
-            font-size: 24px;
-            font-weight: 400;
-            line-height: 140%;
-            text-align: left;
-            /* 글자는 왼쪽 정렬 */
-            position: relative;
-            right: 145PX;
-        }
+    .tea-text-parent {
+      display: flex;
+      justify-content: center;
+    }
 
-        hr {
-            width: 1082px;
-            height: 1px;
-            flex-shrink: 0;
-            color: #F1F1F1;
-            position: relative;
-            right: 145PX;
-            margin-top: 80px;
-            margin-bottom: 80px;
-        }
+    .tea-text {
+      /* 최대 1082px까지만 확장 */
+      width: 100%;
+      max-width: 1200px;
+    }
 
-        .title-2 {
-            width: 1082px;
-            color: #000;
-            font-family: Pretendard;
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 140%;
-            /* 50.4px */
-            position: relative;
-            right: 145PX;
-            margin-bottom: 24px;
-        }
+    .tea-text p {
+      width: auto;
+      color: #000;
+      font-family: Pretendard;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 140%;
+      text-align: left;
+    }
 
-        .text-2 {
-            width: 1082px;
-            color: #000;
-            font-family: Pretendard;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 140%;
-            /* 33.6px */
-            position: relative;
-            right: 160PX;
-        }
+    hr {
+      width: 1150px;
+      height: 1px;
+      flex-shrink: 0;
+      color: #F1F1F1;
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
 
-        .text-2 p {
-            margin-bottom: 5px;
-            position: relative;
-            right: 25px;
-        }
+    /* 섹션 래퍼가 있다면(권장) */
+    .section-center {
+      display: block;
+      width: 100%;
+    }
 
-        .choose-btn {
-            color: #FFF;
-            font-family: Pretendard;
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 150%;
-            /* 54px */
-            appearance: none;
-            display: inline-flex;
-            padding: 16px 60px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            border-radius: 20px;
-            background: linear-gradient(0deg, #BFAE9F 0%, #BFAE9F 100%), #FFF;
-            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04);
-            border: none;
-            outline: none;
-            margin-top: 160px;
-            transition: background-color 0.4s ease,   /* 0.6초 동안 색상 변화 */
-              transform .15s ease,
-              box-shadow .2s ease;
-              cursor: pointer;
-            position: relative;
-            left: 200hpx;
-        }
-        .choose-btn:hover {
-            background:#9A8D82;
-        }
-    </style>
+    .title-2,
+    .text-2 {
+      /* 고정폭 대신 최대폭 + 가운데 정렬 */
+      max-width: 1082px;
+      width: 100%;
+      margin: 0 auto;
+      /* ← 가운데 정렬 */
+      padding: 0 20px;
+      /* 좌우 여백(반응형) 필요 없으면 제거 */
+    }
+
+    /* 기존 타이포그래피는 유지 */
+    .title-2 {
+      color: #000;
+      font-family: Pretendard;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 140%;
+      margin-bottom: 24px;
+      text-align: left;
+      margin-left: -21px;
+      /* 제목은 좌측 정렬 */
+    }
+
+    .text-2 {
+      color: #000;
+      font-family: Pretendard;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 140%;
+      text-align: left;
+    }
+
+    /* 리스트가 있다면 들여쓰기/간격 정리 */
+    .text-2 ul {
+      list-style: disc;
+      padding-left: 1.2em;
+      /* 점과 본문 간격 */
+      margin: 0 0 20px;
+    }
+
+    .text-2 li {
+      margin: 6px 0;
+    }
+
+    .text-2 p {
+      margin-bottom: 8px;
+      margin-left: -25px;
+    }
+
+    .choose-btn-parent {
+      display: flex;
+      justify-content: center;
+    }
+
+    .choose-btn {
+      display: block;
+      /* inline-flex 대신 block으로 */
+      margin: 160px auto 0;
+      /* 상단여백 유지, 좌우 auto → 가운데 정렬 */
+      text-align: center;
+      color: #FFF;
+      font-family: Pretendard;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+      /* 54px */
+      appearance: none;
+      padding: 16px 60px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 20px;
+      background: linear-gradient(0deg, #BFAE9F 0%, #BFAE9F 100%), #FFF;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04);
+      border: none;
+      outline: none;
+      transition: background-color 0.4s ease,
+        /* 0.6초 동안 색상 변화 */
+        transform .15s ease,
+        box-shadow .2s ease;
+      cursor: pointer;
+    }
+
+    .choose-btn:hover {
+      background: #9A8D82;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="page">
-        <div class="topbar">
-            <a class="back" href="#" aria-label="뒤로 가기">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                    <path
-                        d="M36 19.125H4.39453L18.2285 32.959L16.6465 34.541L0.105469 18L16.6465 1.45898L18.2285 3.04102L4.39453 16.875H36V19.125Z"
-                        fill="black" />
-                </svg>
-            </a>
+  <div class="page">
+    <div class="topbar">
+      <a class="back" href="#" aria-label="뒤로 가기">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <path
+            d="M36 19.125H4.39453L18.2285 32.959L16.6465 34.541L0.105469 18L16.6465 1.45898L18.2285 3.04102L4.39453 16.875H36V19.125Z"
+            fill="black" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="container">
+      <div class="title-div">
+        <h1 class="title">스트레스 받을 땐, 이런 차 어떠세요?</h1>
+      </div>
+
+      <div class="tea-menu">
+        <button class="tea-btn">라벤더</button>
+        <button class="tea-btn">페퍼민트</button>
+        <button class="tea-btn">레몬밤</button>
+        <button class="tea-btn">루이보스</button>
+        <button class="tea-btn">패션플라워</button>
+      </div>
+
+      <div class="photo">
+        <img src="/photo/뒷배경.jpg" alt="배경사진" class="bg">
+      </div>
+
+      <div class="section">
+        <div class="tea-name">페퍼민트</div>
+        <div class="tea-sub">mint</div>
+        <div class="tea-text-parent">
+          <div class="tea-text">
+            <p>페퍼민트 차는 한 모금만 마셔도 시원하고 청량한 향이 퍼져서 마음을 맑게 해줘요. 특유의 멘톨 향은 답답했던 가슴을
+              시원하게 열어주고, 하루 종일 쌓였던 긴장과 피로를 조금씩 풀어내는 힘이 있답니다.<br><br>
+              스트레스로 머리가 무겁게 짓눌릴 때, 페퍼민트 차는 은은하게 두통을 덜어주고 뭉친 근육을 이완시켜줘요. 또 소화가<br>
+              더디고 속이 불편할 때도 편안하게 다독여주듯 몸을 가볍게 만들어줘요.<br><br>
+              카페인이 없어 늦은 밤에도 부담 없이 마실 수 있다는 점도 큰 장점이에요. 오히려 향긋한 향과 따뜻한 온기가 마음을<br>
+              차분하게 만들어, 편안한 잠자리로 이끌어주기도 해요.<br><br>
+              페퍼민트는 여러분에게 지친 하루 끝에서 마음을 가볍게 해주고 몸을 편안히 감싸주며 휴식을 선사해줄 거에요.
+          </div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="title-2">이렇게 먹는 걸 추천드려요</div>
+          <ul class="text-2">
+            <p>잎 고르기</p>
+            <li>말린 페퍼민트 잎이나 티백을 사용해요.</li>
+            <li>신선한 생잎을 바로 따서 우려도 좋지만, 보관은 말린 잎이 훨씬 편해요.</li>
+            <br>
+            <p>우려내기</p>
+            <li>뜨거운 물(약 90~95℃)을 컵에 붓고 페퍼민트 잎 한 스푼(또는 티백 1개)을 넣어요.</li>
+            <li>5분 정도 우려내면 멘톨 향이 진하게 퍼져요. 더 진한 맛을 원하면 7~10분까지 두셔도 좋아요.</li>
+            <br>
+            <p>맛있게 즐기기</p>
+            <li>그대로 마셔도 충분히 상쾌하지만, 꿀을 한 작은 숟가락 넣으면 부드럽고 달콤한 맛이 더해져요.</li>
+            <li>레몬 한 조각을 곁들이면 상큼함이 살아나서 더 산뜻해져요.</li>
+            <li>여름에는 우려낸 차를 식혀서 얼음을 넣으면 아이스 페퍼민트 티로도 즐길 수 있어요.</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="title-2">이런 점은 조심해주세요</div>
+          <ul class="text-2">
+            <li>약 복용 중일 때 : 소화제, 위산 억제제 등과 상호작용할 수 있으니 의사와 상담 후 마시는 게 안전해요.</li>
+            <li>과다 섭취 : 하루 2~3잔 정도가 적당하며, 과음 시 속쓰림이나 위 불편을 유발할 수 있어요.</li>
+          </ul>
         </div>
 
-        <div class="container">
-            <h1 class="title">스트레스 받을 땐, 이런 차 어떠세요?</h1>
-
-            <div class="tea-menu">
-                <button class="tea-btn">라벤더</button>
-                <button class="tea-btn">페퍼민트</button>
-                <button class="tea-btn">레몬밤</button>
-                <button class="tea-btn">루이보스</button>
-                <button class="tea-btn">패션플라워</button>
-            </div>
-
-            <div class="photo">
-                <!-- 실제 서비스에서는 아래 src를 원하는 이미지로 교체하세요 -->
-                <img src="/photo/뒷배경.jpg" alt="배경사진" class="bg">
-            </div>
-
-            <div class="section">
-                <div class="tea-name">페퍼민트</div>
-                <div class="tea-sub">mint</div>
-                <div class="tea-text">
-                    <p>페퍼민트 차는 한 모금만 마셔도 시원하고 청량한 향이 퍼져서 마음을 맑게 해줘요. 특유의 멘톨 향은 답답했던 가슴을<br>
-                        시원하게 열어주고, 하루 종일 쌓였던 긴장과 피로를 조금씩 풀어내는 힘이 있답니다.<br><br>
-                        스트레스로 머리가 무겁게 짓눌릴 때, 페퍼민트 차는 은은하게 두통을 덜어주고 뭉친 근육을 이완시켜줘요. 또 소화가<br>
-                        더디고 속이 불편할 때도 편안하게 다독여주듯 몸을 가볍게 만들어줘요.<br><br>
-                        카페인이 없어 늦은 밤에도 부담 없이 마실 수 있다는 점도 큰 장점이에요. 오히려 향긋한 향과 따뜻한 온기가 마음을<br>
-                        차분하게 만들어, 편안한 잠자리로 이끌어주기도 해요.<br><br>
-                        페퍼민트는 여러분에게 지친 하루 끝에서 마음을 가볍게 해주고 몸을 편안히 감싸주며 휴식을 선사해줄 거에요.
-                </div>
-                <hr>
-                <div class="section">
-                    <div class="title-2">이렇게 먹는 걸 추천드려요</div>
-                    <ul class="text-2">
-                        <p>잎 고르기</p>
-                        <li>말린 페퍼민트 잎이나 티백을 사용해요.</li>
-                        <li>신선한 생잎을 바로 따서 우려도 좋지만, 보관은 말린 잎이 훨씬 편해요.</li>
-                        <br>
-                        <p>우려내기</p>
-                        <li>뜨거운 물(약 90~95℃)을 컵에 붓고 페퍼민트 잎 한 스푼(또는 티백 1개)을 넣어요.</li>
-                        <li>5분 정도 우려내면 멘톨 향이 진하게 퍼져요. 더 진한 맛을 원하면 7~10분까지 두셔도 좋아요.</li>
-                        <br>
-                        <p>맛있게 즐기기</p>
-                        <li>그대로 마셔도 충분히 상쾌하지만, 꿀을 한 작은 숟가락 넣으면 부드럽고 달콤한 맛이 더해져요.</li>
-                        <li>레몬 한 조각을 곁들이면 상큼함이 살아나서 더 산뜻해져요.</li>
-                        <li>여름에는 우려낸 차를 식혀서 얼음을 넣으면 아이스 페퍼민트 티로도 즐길 수 있어요.</li>
-                    </ul>
-                </div>
-                <hr>
-                <div class="section">
-                    <div class="title-2">이런 점은 조심해주세요</div>
-                    <ul class="text-2">
-                        <li>약 복용 중일 때 : 소화제, 위산 억제제 등과 상호작용할 수 있으니 의사와 상담 후 마시는 게 안전해요.</li>
-                        <li>과다 섭취 : 하루 2~3잔 정도가 적당하며, 과음 시 속쓰림이나 위 불편을 유발할 수 있어요.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <button class="choose-btn">이 차 선택하기</button>
-                </div>
-            </div>
+        <div class="choose-btn-parent">
+          <button class="choose-btn">이 차 선택하기</button>
         </div>
+      </div>
+    </div>
 </body>
 
 </html>
